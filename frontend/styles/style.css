@@ -13,8 +13,16 @@ body{
 
 .form{
     display: flex;
+    flex-direction: column;
+    gap:10px;
     justify-content: center;
     align-items: center;
+}
+
+.form .submitButton {
+    width: 250px;
+    border-radius: 100px;
+    margin-top: 10px;
 }
 
 .center{
@@ -44,6 +52,10 @@ body{
     border-radius: 5px;
     border: 1px solid blue;
     font-size: 14px;
+}
+
+.hide{
+    display: none;
 }
 
 .otpNum::-webkit-inner-spin-button,

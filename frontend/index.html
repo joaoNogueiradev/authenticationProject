@@ -10,27 +10,31 @@
 <body>
     
     <div class="container card p-5">
-        <h3 class="text-primary center">OTP VERIFICATION</h3>
+        <h3 class="text-primary center mb-4">OTP VERIFICATION</h3>
         <div class="row form">
             <div class="col-auto">
-                <input type="email" class="form-control">
+                <input type="text" class="form-control" id="emailDestinationName" placeholder="Name">
             </div>
             <div class="col-auto">
-                <button class="btn btn-primary">Send OTP</button>
+                <input type="email" class="form-control" id="destinationEmail" placeholder="Email">
+            </div>
+            <div class="col-auto center">
+                <button class="btn btn-primary submitButton" id="emailBtn" onclick="generateToken()">Send OTP</button>
             </div>
         </div>
         <div class="verification">
             <div class="title center">
-                <p>An OTP has been sent to ***luizbrks@gmail.com</p>
+                <!-- <p>An OTP has been sent to ***luizbrks@gmail.com</p> -->
             </div>
-            <div class="otpInputFields">
-                <input type="number" class="otpNum otpNum1">
-                <input type="number" class="otpNum otpNum2">
-                <input type="number" class="otpNum otpNum3">
-                <input type="number" class="otpNum otpNum4">
+            <div class="otpInputFields mt-3 hide" id="otpCheck">
+                <input type="number" class="otpNum" id="otpNum1">
+                <input type="number" class="otpNum" id="otpNum2">
+                <input type="number" class="otpNum" id="otpNum3">
+                <input type="number" class="otpNum" id="otpNum4">
+                <button class="btn btn-primary ms-4 submitButton" onclick="verifyToken()">Authenticate</button>
             </div>
         </div>
     </div>
-    
+    <script src="../backend/js/script.js"></script>  
 </body>
 </html>
