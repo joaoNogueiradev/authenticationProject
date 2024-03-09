@@ -18,5 +18,3 @@ function verifyToken(){
         alert('Authentication Suceeded!')
     }
 }
-
-module.exports = generatedToken;
