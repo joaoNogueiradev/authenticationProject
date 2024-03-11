@@ -44,7 +44,6 @@ otpForm.addEventListener('submit', (e) => {
 
     const firstInput = document.getElementById('otpNum1');
     firstInput.focus();
-    
 });
 
 
@@ -64,7 +63,6 @@ const otpInputs = document.querySelectorAll('.otpNum');
 otpInputs.forEach((input, index) => {
     input.addEventListener('input', (e) => {
         if (input.value.length >= input.maxLength) {
-            // Move o foco para o próximo campo de entrada, se existir
             if (index < otpInputs.length - 1) {
                 otpInputs[index + 1].focus();
             }
