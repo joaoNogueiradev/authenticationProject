@@ -22,6 +22,7 @@ otpForm.addEventListener('submit', (e) => {
         message: `Your OTP number is ${token}`
     }
     otp = token
+    
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '/');
     xhr.setRequestHeader('content-type', 'application/json');
@@ -29,7 +30,8 @@ otpForm.addEventListener('submit', (e) => {
         console.log(xhr.responseText);
         if(xhr.responseText == 'success'){
             notification.innerHTML = '';
-            alert('Email sent!');
+            const censoredEmail = email.value.substring(0, 4).replace(/./g, '*') + email.value.substring(4);
+            alert(`Email sent to ${censoredEmail}!`);
             name.value = '',
             email.value = ''
         } else {
@@ -53,8 +55,10 @@ submitButton.onclick = (e) => {
     let fieldNumbers = Number(otpNum1.value + otpNum2.value + otpNum3.value + otpNum4.value);
     if(otp !== fieldNumbers){
         alert('Authentication Failed!')
+        otpInputs.forEach(input => input.value = '') 
     } else {
         alert('Authentication Suceeded!')
+        otpInputs.forEach(input => input.value = '') 
     }
 };
 

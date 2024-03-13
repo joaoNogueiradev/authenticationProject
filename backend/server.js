@@ -8,11 +8,11 @@ const nodemailer = require('nodemailer');
 const PORT = process.env.PORT || 5000;
 
 //middleware
-app.use(express.static('public'));
+app.use(express.static('src'));
 app.use(express.json());
 
 app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/public/otpForm.html')
+    res.sendFile(__dirname + '/src/otpForm.html')
 })
 
 app.post('/', (req,res) => {
