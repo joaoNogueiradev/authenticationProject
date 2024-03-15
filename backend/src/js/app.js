@@ -23,24 +23,30 @@ otpForm.addEventListener('submit', (e) => {
     }
     otp = token
     
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', '/');
-    xhr.setRequestHeader('content-type', 'application/json');
-    xhr.onload = function(){
-        console.log(xhr.responseText);
-        if(xhr.responseText == 'success'){
-            notification.innerHTML = '';
-            const censoredEmail = email.value.substring(0, 4).replace(/./g, '*') + email.value.substring(4);
-            alert(`Email sent to ${censoredEmail}!`);
-            name.value = '',
-            email.value = ''
+    fetch('/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(emailData)
+      })
+      .then(response => response.text())
+      .then(responseText => {
+        console.log(responseText);
+        if (responseText === 'success') {
+          notification.innerHTML = '';
+          const censoredEmail = email.value.substring(0, 4).replace(/./g, '*') + email.value.substring(4);
+          alert(`Email sent to ${censoredEmail}!`);
+          name.value = '';
+          email.value = '';
         } else {
-            notification.innerHTML = '';
-            alert('Something went wrong, your Email was not Sent!')
+          notification.innerHTML = '';
+          alert('Something went wrong, your Email was not Sent!');
         }
-    }
-
-    xhr.send(JSON.stringify(emailData));
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
 
     otpField.classList.remove('hide')
 
