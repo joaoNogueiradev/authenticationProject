@@ -1,4 +1,4 @@
-# Documentação do Projeto: Exemplo de Uso do Nodemailer
+# Using Nodemailer for the first time
 
 ## Overview
 This is my first self-made project from scratch, made in a simple way and named V1 because I intend to make enhancements in the future.
